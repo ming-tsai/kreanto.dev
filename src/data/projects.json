@@ -1,0 +1,123 @@
+[
+  {
+    "id": "project-001",
+    "name": "Project 001",
+    "revealName": false,
+    "status": "building",
+    "year": null,
+    "description": "A psychology test that ends in a career suggestion.",
+    "next": "Write the first 10 test questions.",
+    "updated": "2026-11-22",
+    "nextBy": null
+  },
+  {
+    "id": "project-002",
+    "name": "Project 002",
+    "revealName": false,
+    "status": "building",
+    "year": null,
+    "description": "Your monthly budget measured against inflation statistics, using scraped data.",
+    "next": "Find one official inflation source and read its terms of use.",
+    "updated": "2026-11-22",
+    "nextBy": null
+  },
+  {
+    "id": "cron-dynamically",
+    "name": "cron-dynamically",
+    "revealName": true,
+    "status": "archived",
+    "year": null,
+    "description": "A lab for managing cron jobs from a YAML file, using node-cron.",
+    "updated": "2023-07-11",
+    "nextBy": null,
+    "url": "https://github.com/ming-tsai/cron-dynamically"
+  },
+  {
+    "id": "public-apis-api",
+    "name": "public-apis-api",
+    "revealName": true,
+    "status": "archived",
+    "year": null,
+    "description": "A scraper and API built with TypeScript and Express for the public-apis list.",
+    "updated": "2024-02-26",
+    "nextBy": null,
+    "url": "https://github.com/ming-tsai/public-apis-api"
+  },
+  {
+    "id": "pokegraph-api",
+    "name": "PokeGraph-API",
+    "revealName": true,
+    "status": "archived",
+    "year": null,
+    "description": "A Pokemon GraphQL API.",
+    "updated": "2020-08-30",
+    "nextBy": null,
+    "url": "https://github.com/ming-tsai/PokeGraph-API"
+  },
+  {
+    "id": "empirespuzzlesapi",
+    "name": "EmpiresPuzzlesAPI",
+    "revealName": true,
+    "status": "archived",
+    "year": null,
+    "description": "A .NET Core 3.1 web API on Heroku, built on Empires & Puzzles data.",
+    "updated": "2020-08-20",
+    "nextBy": null,
+    "url": "https://github.com/ming-tsai/EmpiresPuzzlesAPI"
+  },
+  {
+    "id": "vue-signalr-efcore",
+    "name": "vue-signalr-efcore",
+    "revealName": true,
+    "status": "archived",
+    "year": null,
+    "description": "A lab combining SignalR, Vue and an EF Core API.",
+    "updated": "2021-05-24",
+    "nextBy": null,
+    "url": "https://github.com/ming-tsai/vue-signalr-efcore"
+  },
+  {
+    "id": "vue-type-text",
+    "name": "vue-type-text",
+    "revealName": true,
+    "status": "archived",
+    "year": null,
+    "description": "Typed components for Vue.",
+    "updated": "2021-06-08",
+    "nextBy": null,
+    "url": "https://github.com/ming-tsai/vue-type-text"
+  },
+  {
+    "id": "autosort.netcore",
+    "name": "AutoSort.NetCore",
+    "revealName": true,
+    "status": "archived",
+    "year": null,
+    "description": "Use entity attributes for default sorting in .NET.",
+    "updated": "2021-06-11",
+    "nextBy": null,
+    "url": "https://github.com/ming-tsai/AutoSort.NetCore"
+  },
+  {
+    "id": "dotnetexplorer",
+    "name": "dotnetexplorer",
+    "revealName": true,
+    "status": "archived",
+    "year": null,
+    "description": "Find the dotnet command you need without searching the web.",
+    "updated": "2021-09-19",
+    "nextBy": null,
+    "url": "https://github.com/ming-tsai/dotnetexplorer"
+  },
+  {
+    "id": "reactjs-training",
+    "name": "reactjs-training",
+    "revealName": true,
+    "status": "archived",
+    "year": null,
+    "description": "A repo from a React.js training course.",
+    "updated": "2023-08-30",
+    "nextBy": null,
+    "url": "https://github.com/ming-tsai/reactjs-training"
+  }
+]
