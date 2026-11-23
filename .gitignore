@@ -155,3 +155,41 @@ vite.config.ts.timestamp-*
 .nx/cache
 .nx/workspace-data
 .nx/migrate-runs
+
+# --- kreanto.dev additions ---
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+Icon[\r]
+._*
+*.icloud
+
+# Local planning notes and Goldfish reviews (not published)
+docs/
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Wrangler / Cloudflare local state
+.wrangler
+.dev.vars

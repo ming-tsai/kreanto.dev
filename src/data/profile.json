@@ -1,0 +1,18 @@
+{
+  "name": "Ming Tsai",
+  "headline": "Developer Lead building software ideas in the open.",
+  "bio": [
+    "I'm a full-stack developer with a backend focus, based in Santo Domingo, Dominican Republic, with about 9 years of experience. I've been leading teams since 2020, first as Scrum Master and, since 2022, as Developer Lead at a large company in the beverage industry. I've worked across frontend, backend, architecture, DevOps and agile teams.",
+    "I hold a degree in Systems Engineering and a Master's in Cybercrime (Nebrija University, Spain, 2024).",
+    "Kreanto is my studio for side projects: what I'm building, what works, and what I archived."
+  ],
+  "languages": [
+    { "name": "Spanish", "level": "Native" },
+    { "name": "Mandarin Chinese", "level": "Native" },
+    { "name": "English", "level": "Professional working proficiency" }
+  ],
+  "links": [
+    { "label": "GitHub", "href": "https://github.com/ming-tsai" },
+    { "label": "LinkedIn", "href": "https://linkedin.com/in/ming-tsai" }
+  ]
+}
