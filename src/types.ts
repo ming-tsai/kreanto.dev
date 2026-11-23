@@ -19,6 +19,8 @@ export interface Project {
   nextBy: string | null
   /** Why it is paused. */
   reason?: string
+  /** Main technologies used, shown as small tags. */
+  stack?: string[]
   /** Public link, once there is something to open. */
   url?: string
 }

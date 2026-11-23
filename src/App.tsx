@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import profile from '@/data/profile.json'
+import { pickTheme } from '@/lib/commands'
 import { isOverdue, projects } from '@/lib/projects'
 import type { Project, Status } from '@/types'
 import { Badge } from '@/components/ui/badge'
@@ -88,7 +90,26 @@ function ProjectCard({ project }: { project: Project }) {
   )
 }
 
+function SectionHeading({
+  id,
+  label,
+  command,
+}: {
+  id?: string
+  label: string
+  command: string
+}) {
+  return (
+    <h2 id={id} className="font-mono text-sm text-muted-foreground">
+      <span className="sr-only">{label}</span>
+      <span aria-hidden>$ {command}</span>
+    </h2>
+  )
+}
+
 export default function App() {
+  // One theme per page load, so both headings use the same tool.
+  const [theme] = useState(pickTheme)
   const active = projects.filter((p) => p.status !== 'archived')
   const archived = projects.filter((p) => p.status === 'archived')
   return (
@@ -125,9 +146,11 @@ export default function App() {
       </section>
 
       <section className="space-y-4" aria-labelledby="projects">
-        <h2 id="projects" className="font-mono text-sm text-muted-foreground">
-          $ ship --list
-        </h2>
+        <SectionHeading
+          id="projects"
+          label="Projects"
+          command={theme.projects}
+        />
         <p className="text-sm text-muted-foreground">
           Names stay hidden until a project ships. Statuses: building, mvp,
           live, paused, archived.
@@ -146,9 +169,10 @@ export default function App() {
         )}
         {archived.length > 0 && (
           <div className="space-y-3 pt-8">
-            <h2 className="font-mono text-sm text-muted-foreground">
-              $ ls archive ({archived.length})
-            </h2>
+            <SectionHeading
+              label={`Archive (${archived.length} projects)`}
+              command={theme.archive}
+            />
             <p className="text-sm text-muted-foreground">
               Old labs and experiments I'm not continuing.
             </p>
@@ -170,6 +194,21 @@ export default function App() {
                     <p className="text-sm text-muted-foreground">
                       {p.description}
                     </p>
+                    {p.stack?.length ? (
+                      <ul
+                        aria-label="Stack"
+                        className="mt-2 flex flex-wrap gap-1.5 font-mono text-xs"
+                      >
+                        {p.stack.map((s) => (
+                          <li
+                            key={s}
+                            className="rounded-md border border-border px-1.5 py-0.5 text-muted-foreground"
+                          >
+                            {s}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
                   </div>
                   <span className="font-mono text-xs whitespace-nowrap text-muted-foreground">
                     last touched {p.updated.slice(0, 4)}

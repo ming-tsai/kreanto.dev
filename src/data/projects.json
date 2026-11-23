@@ -30,6 +30,11 @@
     "description": "A lab for managing cron jobs from a YAML file, using node-cron.",
     "updated": "2023-07-11",
     "nextBy": null,
+    "stack": [
+      "TypeScript",
+      "node-cron",
+      "YAML"
+    ],
     "url": "https://github.com/ming-tsai/cron-dynamically"
   },
   {
@@ -41,6 +46,10 @@
     "description": "A scraper and API built with TypeScript and Express for the public-apis list.",
     "updated": "2024-02-26",
     "nextBy": null,
+    "stack": [
+      "TypeScript",
+      "Express"
+    ],
     "url": "https://github.com/ming-tsai/public-apis-api"
   },
   {
@@ -52,6 +61,10 @@
     "description": "A Pokemon GraphQL API.",
     "updated": "2020-08-30",
     "nextBy": null,
+    "stack": [
+      "TypeScript",
+      "GraphQL"
+    ],
     "url": "https://github.com/ming-tsai/PokeGraph-API"
   },
   {
@@ -63,6 +76,11 @@
     "description": "A .NET Core 3.1 web API on Heroku, built on Empires & Puzzles data.",
     "updated": "2020-08-20",
     "nextBy": null,
+    "stack": [
+      "C#",
+      ".NET Core",
+      "Heroku"
+    ],
     "url": "https://github.com/ming-tsai/EmpiresPuzzlesAPI"
   },
   {
@@ -74,6 +92,12 @@
     "description": "A lab combining SignalR, Vue and an EF Core API.",
     "updated": "2021-05-24",
     "nextBy": null,
+    "stack": [
+      "Vue",
+      "SignalR",
+      "EF Core",
+      "C#"
+    ],
     "url": "https://github.com/ming-tsai/vue-signalr-efcore"
   },
   {
@@ -85,6 +109,10 @@
     "description": "Typed components for Vue.",
     "updated": "2021-06-08",
     "nextBy": null,
+    "stack": [
+      "Vue",
+      "TypeScript"
+    ],
     "url": "https://github.com/ming-tsai/vue-type-text"
   },
   {
@@ -96,6 +124,10 @@
     "description": "Use entity attributes for default sorting in .NET.",
     "updated": "2021-06-11",
     "nextBy": null,
+    "stack": [
+      "C#",
+      ".NET"
+    ],
     "url": "https://github.com/ming-tsai/AutoSort.NetCore"
   },
   {
@@ -107,6 +139,9 @@
     "description": "Find the dotnet command you need without searching the web.",
     "updated": "2021-09-19",
     "nextBy": null,
+    "stack": [
+      "TypeScript"
+    ],
     "url": "https://github.com/ming-tsai/dotnetexplorer"
   },
   {
@@ -118,6 +153,9 @@
     "description": "A repo from a React.js training course.",
     "updated": "2023-08-30",
     "nextBy": null,
+    "stack": [
+      "React"
+    ],
     "url": "https://github.com/ming-tsai/reactjs-training"
   }
 ]
