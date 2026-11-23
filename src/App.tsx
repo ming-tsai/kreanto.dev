@@ -11,7 +11,7 @@ const STATUS_STYLE: Record<Status, { dot: string; label: string }> = {
   mvp: { dot: 'bg-primary', label: 'mvp' },
   live: { dot: 'bg-emerald-500', label: 'live' },
   paused: { dot: 'bg-zinc-500', label: 'paused' },
-  archived: { dot: 'bg-zinc-700', label: 'archived' },
+  archived: { dot: 'bg-zinc-500', label: 'archived' },
 }
 
 function StatusBadge({
@@ -183,14 +183,21 @@ export default function App() {
                   className="flex flex-col gap-1 px-4 py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
                 >
                   <div>
-                    <a
-                      className="font-mono text-sm text-primary underline-offset-4 hover:underline"
-                      href={p.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {p.name}
-                    </a>
+                    <div className="flex items-center gap-2">
+                      <span
+                        role="img"
+                        aria-label="archived"
+                        className={`size-2 rounded-full ${STATUS_STYLE.archived.dot}`}
+                      />
+                      <a
+                        className="font-mono text-sm text-primary underline-offset-4 hover:underline"
+                        href={p.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {p.name}
+                      </a>
+                    </div>
                     <p className="text-sm text-muted-foreground">
                       {p.description}
                     </p>
