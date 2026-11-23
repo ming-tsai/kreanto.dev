@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  // Must match the name of the Worker in the Cloudflare dashboard.
+  "name": "kreanto-dev",
+  "compatibility_date": "2025-11-01",
+  "assets": {
+    // The folder `npm run build` writes.
+    "directory": "./dist",
+    // Unknown paths return a real 404 instead of the home page.
+    "not_found_handling": "404-page"
+  },
+  // Required by `wrangler preview`, which Cloudflare runs on branch builds.
+  "previews": {}
+}
