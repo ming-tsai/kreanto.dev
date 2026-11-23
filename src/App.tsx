@@ -180,24 +180,17 @@ export default function App() {
               {archived.map((p) => (
                 <li
                   key={p.id}
-                  className="flex flex-col gap-1 px-4 py-3 sm:flex-row sm:items-baseline sm:justify-between sm:gap-6"
+                  className="flex flex-col gap-2 px-4 py-3 sm:flex-row sm:items-start sm:justify-between sm:gap-6"
                 >
                   <div>
-                    <div className="flex items-center gap-2">
-                      <span
-                        role="img"
-                        aria-label="archived"
-                        className={`size-2 rounded-full ${STATUS_STYLE.archived.dot}`}
-                      />
-                      <a
-                        className="font-mono text-sm text-primary underline-offset-4 hover:underline"
-                        href={p.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        {p.name}
-                      </a>
-                    </div>
+                    <a
+                      className="font-mono text-sm text-primary underline-offset-4 hover:underline"
+                      href={p.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {p.name}
+                    </a>
                     <p className="text-sm text-muted-foreground">
                       {p.description}
                     </p>
@@ -217,9 +210,12 @@ export default function App() {
                       </ul>
                     ) : null}
                   </div>
-                  <span className="font-mono text-xs whitespace-nowrap text-muted-foreground">
-                    last touched {p.updated.slice(0, 4)}
-                  </span>
+                  <div className="flex flex-col items-start gap-1 sm:items-end">
+                    <StatusBadge status="archived" year={null} overdue={false} />
+                    <span className="font-mono text-xs whitespace-nowrap text-muted-foreground">
+                      last touched {p.updated.slice(0, 4)}
+                    </span>
+                  </div>
                 </li>
               ))}
             </ul>
