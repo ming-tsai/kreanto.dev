@@ -6,10 +6,21 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
+    <!-- First visit with a Spanish browser goes to /es/, unless the visitor chose a language. -->
+    <script>
+      try {
+        var l = localStorage.getItem('lang') || (navigator.language || '').slice(0, 2)
+        if (l === 'es' && location.pathname === '/') location.replace('/es/' + location.search + location.hash)
+      } catch (e) {}
+    </script>
+
     <!-- Search -->
     <title>Kreanto | Ming Tsai's project studio</title>
     <meta name="description" content="Ming Tsai, full-stack developer and team lead using AI for code quality. Kreanto: software ideas, what's being built, what works, what was archived." />
     <link rel="canonical" href="https://kreanto.dev/" />
+    <link rel="alternate" hreflang="en" href="https://kreanto.dev/" />
+    <link rel="alternate" hreflang="es" href="https://kreanto.dev/es/" />
+    <link rel="alternate" hreflang="x-default" href="https://kreanto.dev/" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="author" content="Ming Tsai" />
     <meta name="theme-color" content="#0b0d10" />
@@ -21,6 +32,7 @@
     <meta property="og:url" content="https://kreanto.dev/" />
     <meta property="og:site_name" content="Kreanto" />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="es_ES" />
     <meta property="og:title" content="Kreanto | Ming Tsai's project studio" />
     <meta property="og:description" content="Full-stack developer and team lead using AI for code quality. Software ideas built in the open: what's being built, what works, what was archived." />
     <meta property="og:image" content="https://kreanto.dev/og.png" />

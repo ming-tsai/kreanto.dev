@@ -7,9 +7,17 @@ import { defineConfig, type Plugin } from 'vite'
 // and preloads the Latin fonts, so they start downloading with the HTML
 // instead of after the CSS has been fetched and parsed.
 function inlineCssPreloadFonts(): Plugin {
+  // Several pages share one stylesheet, so it is removed only after every page used it.
+  const inlined = new Set<string>()
   return {
     name: 'inline-css-preload-fonts',
     apply: 'build',
+    generateBundle: {
+      order: 'post',
+      handler(_, bundle) {
+        for (const file of inlined) delete bundle[file]
+      },
+    },
     transformIndexHtml: {
       order: 'post',
       handler(html, ctx) {
@@ -21,7 +29,7 @@ function inlineCssPreloadFonts(): Plugin {
             const link = new RegExp(`<link[^>]*href="/${file}"[^>]*>`)
             if (link.test(out)) {
               out = out.replace(link, () => `<style>${chunk.source}</style>`)
-              delete bundle[file]
+              inlined.add(file)
             }
           }
         }
@@ -41,6 +49,15 @@ function inlineCssPreloadFonts(): Plugin {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss(), inlineCssPreloadFonts()],
+  build: {
+    // One HTML page per language; both load the same bundle.
+    rollupOptions: {
+      input: {
+        main: path.resolve(import.meta.dirname, 'index.html'),
+        es: path.resolve(import.meta.dirname, 'es/index.html'),
+      },
+    },
+  },
   resolve: {
     alias: { '@': path.resolve(import.meta.dirname, './src') },
   },

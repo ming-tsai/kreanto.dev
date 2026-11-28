@@ -28,7 +28,9 @@ npm run lint      # run Oxlint
 | :-- | :-- |
 | `src/data/profile.json` | Name, headline, bio, languages, links |
 | `src/data/projects.json` | The project cards and the archive list |
-| `index.html` | Page title, description and the link-preview (Open Graph) tags |
+| `src/data/profile.es.json`, `src/data/projects.es.json` | The Spanish text for the same content. A new project needs an entry in `projects.es.json` or the build fails |
+| `src/i18n/en.ts`, `src/i18n/es.ts` | Interface labels in each language |
+| `index.html`, `es/index.html` | Page title, description and the link-preview (Open Graph) tags, per language |
 | `public/og.png` | The 1200x630 link-preview image |
 
 ### Project statuses

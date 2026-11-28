@@ -1,4 +1,6 @@
 import raw from '@/data/projects.json'
+import translations from '@/data/projects.es.json'
+import type { Locale } from '@/i18n'
 import { STATUSES, type Project } from '@/types'
 
 const DATE = /^\d{4}-\d{2}-\d{2}$/
@@ -25,7 +27,30 @@ function validate(list: unknown): Project[] {
   return list as Project[]
 }
 
-export const projects = validate(raw)
+type Translation = { description: string; next?: string; reason?: string }
+
+/** Overlays the Spanish text, and fails the build if a project has none. */
+function localize(list: Project[]): Project[] {
+  const t = translations as Record<string, Translation>
+  return list.map((p) => {
+    const tr = t[p.id]
+    if (!tr?.description)
+      throw new Error(`projects.es.json: "${p.id}" needs a description`)
+    if (p.next && !tr.next)
+      throw new Error(`projects.es.json: "${p.id}" needs next`)
+    if (p.reason && !tr.reason)
+      throw new Error(`projects.es.json: "${p.id}" needs reason`)
+    return { ...p, ...tr }
+  })
+}
+
+const english = validate(raw)
+
+// Both are built up front, so a missing translation fails the build and not a click.
+export const projectsByLocale: Record<Locale, Project[]> = {
+  en: english,
+  es: localize(english),
+}
 
 export function isOverdue(p: Project, today = new Date()): boolean {
   if (p.status !== 'building' || !p.nextBy) return false
