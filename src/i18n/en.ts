@@ -24,7 +24,12 @@ export const en = {
     paused: 'paused',
     archived: 'archived',
   } satisfies Record<Status, string>,
-  switchTo: { label: 'Español', href: '/es/', aria: 'Leer en español', lang: 'es' },
+  meta: {
+    title: "Kreanto | Ming Tsai's project studio",
+    description:
+      "Ming Tsai, full-stack developer and team lead using AI for code quality. Kreanto: software ideas, what's being built, what works, what was archived.",
+  },
+  language: 'Language',
 }
 
 export type Strings = typeof en

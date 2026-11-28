@@ -24,5 +24,10 @@ export const es: Strings = {
     paused: 'en pausa',
     archived: 'archivado',
   },
-  switchTo: { label: 'English', href: '/', aria: 'Read in English', lang: 'en' },
+  meta: {
+    title: 'Kreanto | El estudio de proyectos de Ming Tsai',
+    description:
+      'Ming Tsai, desarrollador full-stack y líder de equipo que usa IA para mejorar la calidad del código. Kreanto: ideas de software, lo que se está construyendo, lo que funciona y lo que se archivó.',
+  },
+  language: 'Idioma',
 }
