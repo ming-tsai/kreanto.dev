@@ -1,0 +1,14 @@
+{
+  "headline": "Developer Lead que construye ideas de software a la vista de todos.",
+  "bio": [
+    "Soy desarrollador full-stack con enfoque en backend, radicado en Santo Domingo, República Dominicana, con unos 9 años de experiencia. Lidero equipos desde 2020, primero como Scrum Master y, desde 2022, como Developer Lead en una gran empresa de la industria de bebidas. Dirijo un equipo de 3 a 4 desarrolladores, hago revisiones de código y defino estándares de codificación.",
+    "Uso herramientas de IA para mejorar la calidad del código y automatizar tareas rutinarias como revisiones de pull requests, historias de usuario y notas de versión. También construyo agentes de IA: uno, escrito en Python, resuelve, enruta o escala tickets de soporte al cliente. Di a mi equipo una capacitación introductoria sobre IA generativa.",
+    "Tengo una licenciatura en Ingeniería de Sistemas. En 2024 completé una maestría en Cibercrimen en la Universidad de Nebrija, en España.",
+    "Kreanto es mi estudio de proyectos personales: lo que estoy construyendo, lo que funciona y lo que archivé."
+  ],
+  "languages": [
+    { "name": "Español", "level": "Dominio profesional" },
+    { "name": "Chino mandarín", "level": "Nativo" },
+    { "name": "Inglés", "level": "Dominio profesional" }
+  ]
+}

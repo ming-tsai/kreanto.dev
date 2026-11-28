@@ -1,0 +1,19 @@
+{
+  "project-001": {
+    "description": "Un test de psicología que termina en una sugerencia de carrera.",
+    "next": "Escribir las primeras 10 preguntas del test."
+  },
+  "project-002": {
+    "description": "Tu presupuesto mensual medido contra estadísticas de inflación, con datos obtenidos por scraping.",
+    "next": "Encontrar una fuente oficial de inflación y leer sus términos de uso."
+  },
+  "cron-dynamically": { "description": "Un laboratorio para gestionar tareas cron desde un archivo YAML, con node-cron." },
+  "public-apis-api": { "description": "Un scraper y una API hechos con TypeScript y Express para la lista public-apis." },
+  "pokegraph-api": { "description": "Una API GraphQL de Pokémon." },
+  "empirespuzzlesapi": { "description": "Una API web en .NET Core 3.1 sobre Heroku, construida con los datos de Empires & Puzzles." },
+  "vue-signalr-efcore": { "description": "Un laboratorio que combina SignalR, Vue y una API con EF Core." },
+  "vue-type-text": { "description": "Componentes tipados para Vue." },
+  "autosort.netcore": { "description": "Usa atributos de entidad para el ordenamiento por defecto en .NET." },
+  "dotnetexplorer": { "description": "Encuentra el comando de dotnet que necesitas sin buscarlo en la web." },
+  "reactjs-training": { "description": "Un repositorio de un curso de React.js." }
+}

@@ -1,17 +1,19 @@
 import { useState } from 'react'
-import profile from '@/data/profile.json'
+import { profile } from '@/lib/profile'
+import { rememberLocale, ui } from '@/i18n'
 import { pickTheme } from '@/lib/commands'
 import { isOverdue, projects } from '@/lib/projects'
 import type { Project, Status } from '@/types'
+import { STATUSES } from '@/types'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 
-const STATUS_STYLE: Record<Status, { dot: string; label: string }> = {
-  building: { dot: 'bg-primary animate-pulse', label: 'building' },
-  mvp: { dot: 'bg-primary', label: 'mvp' },
-  live: { dot: 'bg-emerald-500', label: 'live' },
-  paused: { dot: 'bg-zinc-500', label: 'paused' },
-  archived: { dot: 'bg-zinc-500', label: 'archived' },
+const STATUS_STYLE: Record<Status, { dot: string }> = {
+  building: { dot: 'bg-primary animate-pulse' },
+  mvp: { dot: 'bg-primary' },
+  live: { dot: 'bg-emerald-500' },
+  paused: { dot: 'bg-zinc-500' },
+  archived: { dot: 'bg-zinc-500' },
 }
 
 function StatusBadge({
@@ -29,7 +31,7 @@ function StatusBadge({
   return (
     <Badge variant="outline" className="gap-2 font-mono">
       <span className={`size-2 rounded-full ${dot}`} aria-hidden />
-      {overdue ? 'overdue' : s.label}
+      {overdue ? ui.overdue : ui.status[status]}
       {year ? <span className="text-muted-foreground">· {year}</span> : null}
     </Badge>
   )
@@ -46,7 +48,7 @@ function ProjectCard({ project }: { project: Project }) {
         ) : (
           <h3
             className="font-mono text-lg font-semibold"
-            aria-label="Name hidden until the project is finished"
+            aria-label={ui.hiddenName}
           >
             <span className="inline-block h-5 w-28 rounded-sm bg-foreground align-middle" />
           </h3>
@@ -61,16 +63,16 @@ function ProjectCard({ project }: { project: Project }) {
         <p>{project.description}</p>
         {finished && project.reason ? (
           <p className="font-mono text-sm text-muted-foreground">
-            why: {project.reason}
+            {ui.why}: {project.reason}
           </p>
         ) : (
           <p className="font-mono text-sm text-muted-foreground">
-            next: {project.next}
-            {project.nextBy ? ` (by ${project.nextBy})` : ''}
+            {ui.next}: {project.next}
+            {project.nextBy ? ` (${ui.by(project.nextBy)})` : ''}
           </p>
         )}
         <p className="font-mono text-xs text-muted-foreground">
-          updated {project.updated}
+          {ui.updated} {project.updated}
           {project.url ? (
             <>
               {' · '}
@@ -80,7 +82,7 @@ function ProjectCard({ project }: { project: Project }) {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                repo
+                {ui.repo}
               </a>
             </>
           ) : null}
@@ -115,9 +117,21 @@ export default function App() {
   return (
     <main className="mx-auto max-w-3xl space-y-16 px-4 py-16 sm:px-6">
       <section className="space-y-4">
-        <p className="font-mono text-sm text-primary">kreanto.dev</p>
+        <div className="flex items-center justify-between font-mono text-sm">
+          <p className="text-primary">kreanto.dev</p>
+          <a
+            className="text-muted-foreground underline-offset-4 hover:underline"
+            href={ui.switchTo.href}
+            hrefLang={ui.switchTo.lang}
+            lang={ui.switchTo.lang}
+            aria-label={ui.switchTo.aria}
+            onClick={() => rememberLocale(ui.switchTo.lang)}
+          >
+            {ui.switchTo.label}
+          </a>
+        </div>
         <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
-          Hi, I'm {profile.name}.
+          {ui.hi(profile.name)}
           <br />
           <span className="text-muted-foreground">{profile.headline}</span>
         </h1>
@@ -148,16 +162,15 @@ export default function App() {
       <section className="space-y-4" aria-labelledby="projects">
         <SectionHeading
           id="projects"
-          label="Projects"
+          label={ui.projects}
           command={theme.projects}
         />
         <p className="text-sm text-muted-foreground">
-          Names stay hidden until a project ships. Statuses: building, mvp,
-          live, paused, archived.
+          {ui.projectsIntro(STATUSES.map((s) => ui.status[s]).join(', '))}
         </p>
         {active.length === 0 ? (
           <p className="font-mono text-sm">
-            error: nothing shipped yet. something is compiling
+            {ui.empty}
             <span className="animate-pulse">_</span>
           </p>
         ) : (
@@ -170,11 +183,11 @@ export default function App() {
         {archived.length > 0 && (
           <div className="space-y-3 pt-8">
             <SectionHeading
-              label={`Archive (${archived.length} projects)`}
+              label={ui.archive(archived.length)}
               command={theme.archive}
             />
             <p className="text-sm text-muted-foreground">
-              Old labs and experiments I'm not continuing.
+              {ui.archiveIntro}
             </p>
             <ul className="divide-y divide-border rounded-xl border border-border">
               {archived.map((p) => (
@@ -196,7 +209,7 @@ export default function App() {
                     </p>
                     {p.stack?.length ? (
                       <ul
-                        aria-label="Stack"
+                        aria-label={ui.stack}
                         className="mt-2 flex flex-wrap gap-1.5 font-mono text-xs"
                       >
                         {p.stack.map((s) => (
@@ -213,7 +226,7 @@ export default function App() {
                   <div className="flex flex-col items-start gap-1 sm:items-end">
                     <StatusBadge status="archived" year={null} overdue={false} />
                     <span className="font-mono text-xs whitespace-nowrap text-muted-foreground">
-                      last touched {p.updated.slice(0, 4)}
+                      {ui.lastTouched} {p.updated.slice(0, 4)}
                     </span>
                   </div>
                 </li>
